@@ -1,1 +1,40 @@
+#Given nums and target return indices of two elements such that they add up to the target
+# [2,7,8,11,15] , 9
+
+Brute Force Approach
+'''
+def indices(nums,target):
+    for i in range(0,len(nums)):
+        for j in range(i+1,len(nums)):
+            if nums[i] + nums[j] ==target:
+                return i,j
+'''
+
+Hash Map
+'''
+def indices(nums,target):
+    dictionary = {}
+    for i,num in enumerate(nums):
+        if target - num in dictionary.keys():
+            return i, dictionary[target-num]
+        else:
+            dictionary[num] = i
+'''
+
+If the list is sorted allready we can use two pointer method
+'''
+
+def indices (nums, target):
+    left = 0 
+    right = len(nums)-1
+    while nums[left] + nums[right] != target:
+        if nums[left] + nums[right] < target:
+            left += 1
+        elif nums[left] + nums[right] > target:
+            right += 1
+    return left,right
+
+indices([1,2,3,4],6)
+'''
+
 
