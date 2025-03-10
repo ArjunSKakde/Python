@@ -21,6 +21,7 @@ def indices(nums,target):
             dictionary[num] = i
 '''
 
+
 If the list is sorted allready we can use two pointer method
 '''
 
@@ -36,5 +37,57 @@ def indices (nums, target):
 
 indices([1,2,3,4],6)
 '''
+
+#Given an integer array nums, find three numbers whose product is maximum and return maximum product
+
+def max_sum(nums):
+    nums.sort()
+    return max(nums[-3] * nums[-2] * nums[-1],nums[0]*nums[1]*nums[2])
+   
+ 
+        
+max_sum([1,10,2,6,5,3])
+
+
+
+#Given an integer array nums, find three numbers whose product is maximum and return maximum product
+'''
+def max_sum(nums):
+    nums.sort()
+    return max(nums[-3] * nums[-2] * nums[-1],nums[0]*nums[1]*nums[2])
+   
+ 
+        
+max_sum([1,10,2,6,5,3])
+'''
+
+
+# integer array : height, each element represents the heights of a vertical line drawn at that index
+#Find two lines that together with the x-axis form a container that holds the most water
+#return maximum area of water that can be contained
+
+#height = [1,8,6,2,5,4,8,7] out : 49
+
+'''
+
+def area(height):
+    left = 0
+    right = len(height)-1
+    current_area = 0
+    while left < right:
+        current_area = max(current_area,(max(height[left],height[right]) * (right-left)))
+        if height[left] > height[right]:
+            right -=1
+            print(right)
+        else:
+            left +=1
+            print(left)
+         
+    return current_area
+area([1,8,6,2,5,4,8,7])
+#area([4,3,2,1,4])
+'''
+
+
 
 
