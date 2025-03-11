@@ -89,5 +89,13 @@ area([1,8,6,2,5,4,8,7])
 '''
 
 
+#Sliding Windiow
+- ideal for
+    1. Finding subarray with specific properties.
+    2. Optimizing solution for maximum/miniumum values in continous sequence.
+    3. Reducing complexity of scenario otherwise require nested loop.
+
+
+
 
 
