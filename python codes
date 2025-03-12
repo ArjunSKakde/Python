@@ -98,4 +98,24 @@ area([1,8,6,2,5,4,8,7])
 
 
 
+## Binary Search
 
+- we use two variables left and right and check if middle element is greater or small 
+ (if we are not findind any specific item then remember not equal) 
+- then if the number the number is greater then we move right to mid - 1 and if number if small then we move left + 1
+- remember binary search only works if the list is sorted.
+
+
+low = 0 
+high = len(list) - 1
+
+mid = round((high-low)/2 +0.1)
+
+- if the guess is low update the low
+if guess < item:
+    low = mid + 1
+
+elif guess > item:
+    high = mid - 1
+
+- 
