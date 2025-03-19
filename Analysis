@@ -1,0 +1,402 @@
+# Optional Lab:  Brief Introduction to Python and Jupyter Notebooks
+Welcome to the first optional lab! 
+Optional labs are available to:
+- provide information - like this notebook
+- reinforce lecture material with hands-on examples
+- provide working examples of routines used in the graded labs
+
+## Goals
+In this lab, you will:
+- Get a brief introduction to Jupyter notebooks
+- Take a tour of Jupyter notebooks
+- Learn the difference between markdown cells and code cells
+- Practice some basic python
+
+
+The easiest way to become familiar with Jupyter notebooks is to take the tour available above in the Help menu:
+
+<figure>
+    <center> <img src="./images/C1W1L1_Tour.PNG"  alt='missing' width="400"  ><center/>
+<figure/>
+
+Jupyter notebooks have two types of cells that are used in this course. Cells such as this which contain documentation called `Markdown Cells`. The name is derived from the simple formatting language used in the cells. You will not be required to produce markdown cells. Its useful to understand the `cell pulldown` shown in graphic below. Occasionally, a cell will end up in the wrong mode and you may need to restore it to the right state:
+
+<figure>
+   <img src="./images/C1W1L1_Markdown.PNG"  alt='missing' width="400"  >
+<figure/>
+
+The other type of cell is the `code cell` where you will write your code:
+
+#This is  a 'Code' Cell
+print("This is  code cell")
+
+## Python
+You can write your code in the code cells. 
+To run the code, select the cell and either
+- hold the shift-key down and hit 'enter' or 'return'
+- click the 'run' arrow above
+<figure>
+    <img src="./images/C1W1L1_Run.PNG"  width="400"  >
+<figure/>
+
+ 
+
+### Print statement
+Print statements will generally use the python f-string style.  
+Try creating your own print in the following cell.  
+Try both methods of running the cell.
+
+# print statements
+variable = "right in the strings!"
+print(f"f strings allow you to embed variables {variable}")
+
+# Congratulations!
+You now know how to find your way around a Jupyter Notebook.
+
+
+
+
+
+import pandas as pd
+
+data = {
+    'EmployeeID': [1, 2, 3, 4, 5],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Salary': [50000, 60000, 50000, 70000, 60000]
+}
+
+df = pd.DataFrame(data)
+
+df
+
+grouped = df.groupby('Salary')
+
+for name, group in grouped:
+    print(name)
+    print(group)
+
+
+pip install yfinance
+
+
+
+
+
+
+
+
+
+#Problem : Longest substring without repeating character
+'''
+Given a string s, find the length of longest substring without repeating characters.
+Example 1:
+Input: s = 'abcabcbb'
+Output 3 (abc is lingest)
+
+s= 'bbbb'
+output 1 ('b')
+
+s = 'pwwkew'
+output 2 ('wke')
+'''
+
+# options for storing data : set, dict
+def longString(s):
+    char_index = {}
+    max_length = 0
+    left = 0
+    
+    for right in range(len(s)):
+        if s[right] in char_index:
+            left = max(left,char_index[s[right]] + 1 )
+            char_index[s[right]] = right
+        max_length = max(max_length,right - left+1)
+        
+    return max_length
+
+longString('pwwk')
+    
+            
+        
+        
+        
+
+def longString(s):
+    char_index = {}
+    max_length = 0
+    left = 0
+    
+    for right in range(len(s)):
+        if s[right] in char_index:
+            left += 1
+            char_index[s[right]] = right
+            max_length = 
+            
+        char_index[s[right]] = right
+        max_length = (right-left+1)
+    return max_length
+
+longString('ab')
+
+def max_substring(s):
+    sub_string = {}
+    left = 0
+    max_length = 0
+    output = []
+    for right in range(len(s)):
+        if s[right] in sub_string:
+            max_length = max(max_length,len(sub_string))
+            sub_string = {}
+            sub_string[s[right]] = right
+            
+        else:
+            sub_string[s[right]] = right
+            max_length = max(max_length,len(sub_string))
+            
+            
+       
+       
+        
+    return max_length
+max_substring('pwwkew')
+        
+        
+
+
+
+
+
+# binary search
+'''
+we need to find out given number
+'''
+
+def bisec(n, value):
+    
+    left = 0
+    right = value
+    
+    while left < right:
+        mid = left+ (right-left) //2
+        print(mid,left,right)
+        if mid > n:
+            right = mid - 1
+        elif mid < n:
+            left = mid + 1
+        elif mid == n:
+            return mid
+       
+    return left 
+
+bisec(15,4)
+            
+
+print('e')
+
+import pandas as pd
+
+#crea
+
+sushi = { 
+            "salmon": "orange",
+            "Tuna" : "Red",
+            "Eel": "Brown"}
+
+sushi_series = pd.Series(sushi)
+
+sushi_series.size
+
+sushi_series.is_unique
+
+color = sushi_series.values
+fish = sushi_series.index
+
+pd.Series(fish, index = color)
+
+
+
+Name = ["SpiderMan", "BatMan", "SuperMan"]
+Rating = [6,7,5]
+
+
+
+dictionary = {"Name":Name, "Ratings":Rating}
+
+movie_ratings = pd.DataFrame(dictionary)
+
+movie_ratings.to_csv("movie_ratings", index = False)
+
+new_ratings = pd.read_csv('movie_ratings', usecols = ["Ratings"]).squeeze
+
+l1 = linew_ratings
+
+l1
+
+import pandas as pd
+
+data = {
+    'Movie': [
+        'The Shawshank Redemption', 'The Godfather', 'The Dark Knight', 'Pulp Fiction', 'Forrest Gump',
+        'Inception', 'Fight Club', 'The Matrix', 'Goodfellas', 'Se7en',
+        'The Silence of the Lambs', 'Saving Private Ryan', 'Schindler\'s List', 'The Green Mile', 'Interstellar',
+        'Parasite', 'Gladiator', 'The Departed', 'Whiplash', 'The Prestige',
+        'Memento', 'The Lion King', 'Back to the Future', 'Terminator 2: Judgment Day', 'Alien',
+        'Blade Runner 2049', 'Mad Max: Fury Road', 'Jurassic Park', 'The Social Network', 'The Wolf of Wall Street',
+        'Django Unchained', 'Inglourious Basterds', 'Shutter Island', 'Gone Girl', 'A Beautiful Mind',
+        'The Imitation Game', 'La La Land', 'Moonlight', 'Her', 'Ex Machina',
+        'Arrival', 'The Revenant', 'Birdman', '12 Years a Slave', 'Black Swan',
+        'The Grand Budapest Hotel', 'The Theory of Everything', 'Spotlight', 'Room', 'Manchester by the Sea'
+    ],
+    'Rating': [
+        9.3, 9.2, 9.0, 8.9, 8.8,
+        8.7, 8.6, 8.7, 8.7, 8.6,
+        8.6, 8.5, 8.9, 8.6, 8.6,
+        8.6, 8.5, 8.5, 8.5, 8.5,
+        8.4, 8.5, 8.5, 8.5, 8.4,
+        8.4, 8.4, 8.1, 7.7, 7.9,
+        8.4, 8.3, 8.2, 8.1, 8.2,
+        8.0, 7.9, 7.4, 7.3, 7.7,
+        7.9, 7.8, 7.7, 7.6, 7.7,
+        7.5, 7.7, 7.6, 7.6, 7.5
+    ]
+}
+
+
+movie_ratings = pd.DataFrame(data)
+
+movie_ratings
+
+#distribution
+hist = {}
+
+for x in movie_ratings['Rating'].values:
+    hist[x] = hist.get(x,0) + 1
+
+hist
+
+#normalization
+'''
+Probability Interpretation: In the context of probability distributions,
+normalization ensures that the sum of probabilities equals 1, making it easier to interpret the data.
+'''
+n = len(movie_ratings['Rating'].values)
+normalize_hist = {}
+
+for x,freq in hist.items():
+    normalize_hist[x] = freq  / n 
+
+
+hist_series = pd.Series(data = normalize_hist.values(), index = normalize_hist.keys())
+
+import matplotlib.pyplot as plt
+
+hist_series.plot(kind = 'bar')
+
+# Histogram are useful because they make the following features immediately appearant
+# 1. Mode
+# 2. Shape 
+
+
+'''
+1. Bell-Shaped (Normal Distribution)
+Description: Resembles a bell curve with a single peak in the middle.
+Indicates: Most data points are clustered around the mean, with fewer data points at the extremes. This is typical of many natural phenomena, such as heights or test scores1.
+2. Uniform
+Description: All bars are approximately the same height.
+Indicates: Each value in the dataset occurs with roughly the same frequency. This suggests a random distribution without any apparent trends1.
+3. Bimodal
+Description: Two distinct peaks.
+Indicates: The presence of two different subgroups within the data. For example, test scores from two different classes2.
+4. Multimodal
+Description: More than two peaks.
+Indicates: Multiple subgroups or modes within the data. This can occur in complex datasets with several underlying patterns3.
+5. Left-Skewed (Negatively Skewed)
+Description: A long tail on the left side.
+Indicates: Most data points are concentrated on the higher end, with a few lower values. This can occur in datasets like age at retirement2.
+6. Right-Skewed (Positively Skewed)
+Description: A long tail on the right side.
+Indicates: Most data points are concentrated on the lower end, with a few higher values. This is common in income distributions2.
+7. Random
+Description: No clear pattern or shape.
+Indicates: The data does not follow any specific distribution pattern
+'''
+
+
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Analyze the sales data of a retail store to find out which price range of products is the most popular among customers.
+
+data = {
+    'Product_ID': list(range(1, 21)),
+    'Price': [15, 20, 35, 50, 45, 30, 25, 40, 55, 60, 20, 35, 50, 45, 30, 25, 40, 55, 60, 15],
+    'Units_Sold': [120, 150, 90, 60, 70, 110, 130, 80, 50, 40, 160, 100, 70, 80, 120, 140, 90, 60, 50, 130]
+}
+
+sales_Data = pd.DataFrame(data)
+
+max_price = sales_Data['Price'].max()
+min_price = sales_Data['Price'].min()
+print('min_price',':',min_price,',','max_price',':',max_price)
+
+#generating 10 bins with numpy
+
+bins = np.arange(min_price,max_price+1,15)
+bins = bins.astype(int)
+bins = np.insert(bins,0,0)
+bins
+
+
+price_range = {}
+for i in range(1,len(bins)):
+    price_range[bins[i]] = int(sales_Data[(sales_Data['Price'] > bins[i-1]) & (sales_Data['Price'] <= bins[i])]['Units_Sold'].sum())
+
+price_range.values()
+
+hist = {}
+n = len(sales_Data['Price'])
+for x,freq in price_range.items():
+    hist[int(x)] = int(freq/n)
+hist
+
+hist_Series = pd.Series(data = [x for x in hist.values()], index =hist.keys())
+hist_Series
+
+hist_Series.plot(kind = 'bar')
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {
+    'Product_ID': list(range(1, 21)),
+    'Price': [15, 20, 35, 50, 45, 30, 25, 40, 55, 60, 20, 35, 50, 45, 30, 25, 40, 55, 60, 15],
+    'Units_Sold': [120, 150, 90, 60, 70, 110, 130, 80, 50, 40, 160, 100, 70, 80, 120, 140, 90, 60, 50, 130]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Define bins for price ranges
+bins = [0, 15, 30, 45, 60, 75]
+labels = ['0-15', '16-30', '31-45', '46-60', '61-75']
+
+# Create a new column for price ranges
+df['Price_Range'] = pd.cut(df['Price'], bins=bins, labels=labels, right=False)
+
+# Group by price range and sum the units sold
+price_range_summary = df.groupby('Price_Range')['Units_Sold'].sum()
+
+# Plot the data
+plt.figure(figsize=(10, 6))
+price_range_summary.plot(kind='bar', color='skyblue', edgecolor='black')
+plt.xlabel('Price Range')
+plt.ylabel('Total Units Sold')
+plt.title('Total Units Sold by Price Range')
+plt.xticks(rotation=45)
+plt.show()
+
